@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+    <package name="guest" extends="json-default" namespace="/">
+
+        <result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>
+
+        <!--The filtering language data-->
+        <interceptors>
+
+            <interceptor-stack name="generalGuestStack">
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+
+        </interceptors>
+        <!--The default filter/interceptor, action and class -->
+        <default-interceptor-ref name="generalGuestStack"/>
+
+        <global-results>
+            <result name="InternalErrorException">/pages/500.jsp</result>
+            <result name="exception" type="chain">exception</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="exception"/>
+        </global-exception-mappings>
+
+        <action name="exception" class="ExceptionHandler">
+            <result>/pages/500.jap</result>
+        </action>
+
+        <action name="home" class="GuestHomeAction" method="renderHomePage">
+            <result type="tiles">guest.home</result>
+        </action>
+
+    </package>
+
+</struts>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+    <bean id="answerManager" class="freelance.example.manager.impl.AnswerManager">
+        <property name="answerDao" ref="answerDao"/>
+    </bean>
+
+    <bean id="questionManager" class="freelance.example.manager.impl.QuestionManager">
+        <property name="questionDao" ref="questionDao"/>
+    </bean>
+
+    <bean id="userManager" class="freelance.example.manager.impl.UserManager">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+
+</beans>

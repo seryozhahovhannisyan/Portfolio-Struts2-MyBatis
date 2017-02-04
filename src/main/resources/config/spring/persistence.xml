@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+
+    <bean id="userMapper"
+          class="org.mybatis.spring.mapper.MapperFactoryBean"
+          p:sqlSessionTemplate-ref="sqlSessionTemplate"
+          p:mapperInterface="freelance.example.dataaccess.mapper.namespace.UserMap"
+          p:sqlSessionFactory-ref="sqlSessionFactory"/>
+
+    <bean id="answerMapper"
+          class="org.mybatis.spring.mapper.MapperFactoryBean"
+          p:sqlSessionTemplate-ref="sqlSessionTemplate"
+          p:mapperInterface="freelance.example.dataaccess.mapper.namespace.AnswerMap"
+          p:sqlSessionFactory-ref="sqlSessionFactory"/>
+
+    <bean id="questionMapper"
+          class="org.mybatis.spring.mapper.MapperFactoryBean"
+          p:sqlSessionTemplate-ref="sqlSessionTemplate"
+          p:mapperInterface="freelance.example.dataaccess.mapper.namespace.QuestionMap"
+          p:sqlSessionFactory-ref="sqlSessionFactory"/>
+
+</beans>
